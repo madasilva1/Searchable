@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditWordActivity extends AppCompatActivity {
 
+    public static final int WORD_EDIT = 1;
     private static final String TAG = EditWordActivity.class.getSimpleName();
 
     private static final int NO_ID = -99;

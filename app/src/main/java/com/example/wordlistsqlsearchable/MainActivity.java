@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         */
         // Add a floating action click handler for creating new entries.
-        Button fab = (Button) findViewById(R.id.fab);
+       /* Button fab = (Button) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(),EditWordActivity.class);
                startActivity(intent);
             }
-        });
+        });*/
         Button viewlist = (Button) findViewById(R.id.view);
         viewlist.setOnClickListener(new View.OnClickListener() {
             @Override

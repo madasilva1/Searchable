@@ -84,7 +84,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
                 intent.putExtra(EXTRA_WORD, word);
 
                 // Start an empty edit activity.
-                ((Activity) mContext).startActivityForResult(intent, MainActivity.WORD_EDIT);
+                ((Activity) mContext).startActivityForResult(intent,EditWordActivity.WORD_EDIT);
             }
         });
     }
