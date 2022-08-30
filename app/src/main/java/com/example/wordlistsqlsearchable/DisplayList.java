@@ -39,16 +39,6 @@ public class DisplayList extends AppCompatActivity {
         // Give the recycler view a default layout manager.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Button fab = (Button) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Starts empty edit activity.
-                Intent intent = new Intent(getBaseContext(), EditWordActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -29,17 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      /*  mDB = new WordListOpenHelper(this);
-        // Create recycler view.
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        // Create an mAdapter and supply the data to be displayed.
-        mAdapter = new WordListAdapter(this, /* mDB.getAllEntries(),*/ /*mDB);/*
-        // Connect the mAdapter with the recycler view.
-        mRecyclerView.setAdapter(mAdapter);
-        // Give the recycler view a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        */
-        // Add a floating action click handler for creating new entries.
+     
         Button AddaData = (Button) findViewById(R.id.AddData);
         AddaData.setOnClickListener(new View.OnClickListener() {
             @Override
