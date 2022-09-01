@@ -23,7 +23,7 @@
         android:layout_marginLeft="10dp"
         android:ems="10"
         />
-    <Button android:id="@+id/AddData"
+    <Button android:id="@+id/Add_Data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"

@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -24,87 +25,116 @@ public class MainActivity extends AppCompatActivity {
     private WordListOpenHelper mDB;
     private RecyclerView mRecyclerView;
     private WordListAdapter mAdapter;
+    EditText editTextname;
+    Button addData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       // AddData();
+        editTextname = (EditText) findViewById(R.id.editText_name);
+       mDB = new WordListOpenHelper(this);
 
-     
-        Button AddaData = (Button) findViewById(R.id.AddData);
-        AddaData.setOnClickListener(new View.OnClickListener() {
+       Button addaData = (Button)findViewById(R.id.Add_Data);
+        addaData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String name = editTextname.getText().toString();
+
+                WordListOpenHelper wordListOpenHelper = new WordListOpenHelper(MainActivity.this);
+                wordListOpenHelper.insertData(name);
+                // intent = new Intent(MainActivity.this,Details.class);
+                // startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Details Inserted Successfully", Toast.LENGTH_SHORT).show();
                 // Starts empty edit activity.
-                Intent intent = new Intent(getBaseContext(),EditWordActivity.class);
-               startActivity(intent);
+               // Intent intent = new Intent(getBaseContext(),EditWordActivity.class);
+               //startActivity(intent);
             }
         });
         Button viewlist = (Button) findViewById(R.id.view);
         viewlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),DisplayList.class);
-                startActivity(intent);
+                Intent intent = new Intent(getBaseContext(), DisplayList.class);
+               startActivity(intent);
             }
         });
     }
 
-    /**
-     * Inflates the menu, and adds items to the action bar if it is present.
-     *
-     * @param   menu    Menu to inflate.
-     * @return          Returns true if the menu inflated.
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+   // public void AddData() {
+  // Button addaData = (Button) findViewById(R.id.Add_Data);
 
-    /**
-     * Handles app bar item clicks.
-     *
-     * @param item  Item clicked.
-     * @return      Returns true if one of the defined items was clicked.
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                // Starts search activity.
-                Intent intent = new Intent(getBaseContext(), com.example.wordlistsqlsearchable.SearchActivity.class);
-                startActivity(intent);
-                return true;
+
+                       /* boolean isInserted = myDb.insertData(editRoom.getText().toString(),
+                                editRoom.getText().toString(),
+                                editDate.getText().toString() );
+                        if(isInserted == true)
+                            Toast.makeText(MainActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(MainActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+                        */
+
+
+
+
+
+        /**
+         * Inflates the menu, and adds items to the action bar if it is present.
+         *
+         * @param   menu    Menu to inflate.
+         * @return Returns true if the menu inflated.
+         */
+        @Override
+        public boolean onCreateOptionsMenu (Menu menu){
+            getMenuInflater().inflate(R.menu.menu_main, menu);
+            return true;
         }
-        return super.onOptionsItemSelected(item);
-    }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        /**
+         * Handles app bar item clicks.
+         *
+         * @param item  Item clicked.
+         * @return Returns true if one of the defined items was clicked.
+         */
+        @Override
+        public boolean onOptionsItemSelected (MenuItem item){
+            switch (item.getItemId()) {
+                case R.id.action_search:
+                    // Starts search activity.
+                    Intent intent = new Intent(getBaseContext(), com.example.wordlistsqlsearchable.SearchActivity.class);
+                    startActivity(intent);
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
 
-        if (requestCode == WORD_EDIT) {
-            if (resultCode == RESULT_OK) {
-                String word = data.getStringExtra(EditWordActivity.EXTRA_REPLY);
+        public void onActivityResult ( int requestCode, int resultCode, Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
 
-                // Update the database.
-                if (!TextUtils.isEmpty(word)) {
-                    int id = data.getIntExtra(WordListAdapter.EXTRA_ID, -99);
+            if (requestCode == WORD_EDIT) {
+                if (resultCode == RESULT_OK) {
+                    String word = data.getStringExtra(EditWordActivity.EXTRA_REPLY);
 
-                    if (id == WORD_ADD) {
-                        mDB.insert(word);
-                    } else if (id >= 0) {
-                        mDB.update(id, word);
+                    // Update the database.
+                    if (!TextUtils.isEmpty(word)) {
+                        int id = data.getIntExtra(WordListAdapter.EXTRA_ID, -99);
+
+                        if (id == WORD_ADD) {
+                            mDB.insert(word);
+                        } else if (id >= 0) {
+                            mDB.update(id, word);
+                        }
+                        // Update the UI.
+                        mAdapter.notifyDataSetChanged();
+                    } else {
+                        Toast.makeText(
+                                getApplicationContext(),
+                                R.string.empty_word_not_saved,
+                                Toast.LENGTH_LONG).show();
                     }
-                    // Update the UI.
-                    mAdapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            R.string.empty_word_not_saved,
-                            Toast.LENGTH_LONG).show();
                 }
             }
-        }
 
+        }
     }
-}
