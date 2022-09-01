@@ -45,28 +45,7 @@ public class WordListOpenHelper extends  SQLiteOpenHelper{
        // fillDatabaseWithData(db);
     }
 
-    /**
-     * Adds the initial data set to the database.
-     * According to the docs, onCreate for the open helper does not run on the UI thread.
-     *
-    / * @param db Database to fill with data since the member variables are not initialized yet.
-     */
-  /*  public void fillDatabaseWithData(SQLiteDatabase db) {
 
-        String[] words = {"Android", "Adapter", "ListView", "AsyncTask", "Android Studio",
-                "SQLiteDatabase", "SQLOpenHelper", "Data model", "ViewHolder",
-                "Android Performance", "OnClickListener"};
-
-        // Create a container for the data.
-        ContentValues values = new ContentValues();
-
-        for (int i=0; i < words.length; i++) {
-            // Put column/value pairs for current row into the container.
-            values.put(KEY_WORD, words[i]); // put() overrides existing values.
-            // Insert the row.
-            db.insert(WORD_LIST_TABLE, null, values);
-        }
-    }*/
     public boolean insertData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

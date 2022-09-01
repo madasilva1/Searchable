@@ -18,15 +18,14 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
     public static final int WORD_ADD = -1;
     public static final int WORD_EDIT = 1;
-
+    private static final String TAG = MainActivity.class.getSimpleName();
+    EditText editTextname;
+    Button addData;
     private WordListOpenHelper mDB;
     private RecyclerView mRecyclerView;
     private WordListAdapter mAdapter;
-    EditText editTextname;
-    Button addData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +40,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = editTextname.getText().toString();
-
                 WordListOpenHelper wordListOpenHelper = new WordListOpenHelper(MainActivity.this);
                 wordListOpenHelper.insertData(name);
-                // intent = new Intent(MainActivity.this,Details.class);
-                // startActivity(intent);
                 Toast.makeText(getApplicationContext(), "Details Inserted Successfully", Toast.LENGTH_SHORT).show();
-                // Starts empty edit activity.
-               // Intent intent = new Intent(getBaseContext(),EditWordActivity.class);
-               //startActivity(intent);
+                editTextname.setText("");
             }
         });
         Button viewlist = (Button) findViewById(R.id.view);
@@ -61,25 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-   // public void AddData() {
-  // Button addaData = (Button) findViewById(R.id.Add_Data);
-
-
-                       /* boolean isInserted = myDb.insertData(editRoom.getText().toString(),
-                                editRoom.getText().toString(),
-                                editDate.getText().toString() );
-                        if(isInserted == true)
-                            Toast.makeText(MainActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(MainActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
-                        */
-
-
-
-
-
-        /**
+         /**
          * Inflates the menu, and adds items to the action bar if it is present.
          *
          * @param   menu    Menu to inflate.
