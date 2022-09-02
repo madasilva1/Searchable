@@ -10,9 +10,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Data"
         android:textSize="18dp"
         android:id="@+id/textView"
+        android:text = "@string/my_string"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         />
@@ -22,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:inputType="text"
         android:hint="@string/button_save"
         android:ems="10"
         android:singleLine="false" />

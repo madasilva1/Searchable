@@ -1,10 +1,14 @@
 package com.example.wordlistsqlsearchable;
 
+import static android.graphics.PorterDuff.*;
+import static android.graphics.PorterDuff.Mode.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // AddData();
         editTextname = (EditText) findViewById(R.id.editText_name);
+
        mDB = new WordListOpenHelper(this);
 
        Button addaData = (Button)findViewById(R.id.Add_Data);
