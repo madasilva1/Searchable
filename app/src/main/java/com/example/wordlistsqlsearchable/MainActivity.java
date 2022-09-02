@@ -41,8 +41,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String name = editTextname.getText().toString();
                 WordListOpenHelper wordListOpenHelper = new WordListOpenHelper(MainActivity.this);
-                wordListOpenHelper.insertData(name);
-                Toast.makeText(getApplicationContext(), "Details Inserted Successfully", Toast.LENGTH_SHORT).show();
+                if(!TextUtils.isEmpty(name)) {
+                    wordListOpenHelper.insertData(name);
+                    Toast.makeText(getApplicationContext(), "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Not Inserted, enter some data",Toast.LENGTH_LONG).show();
+                }
+
                 editTextname.setText("");
             }
         });
