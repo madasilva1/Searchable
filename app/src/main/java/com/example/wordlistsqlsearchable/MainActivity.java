@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int WORD_ADD = -1;
     public static final int WORD_EDIT = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
-    EditText editTextname;
-    Button addData;
+    EditText editTextname,editText_date;
+    Button addDate;
     private WordListOpenHelper mDB;
     private RecyclerView mRecyclerView;
     private WordListAdapter mAdapter;
@@ -37,14 +37,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // AddData();
         editTextname = (EditText) findViewById(R.id.editText_name);
+        editText_date = (EditText)findViewById(R.id.editText_date);
 
        mDB = new WordListOpenHelper(this);
+
+       Button adddate = (Button)findViewById(R.id.Add_Date);
+       adddate.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               String date = editText_date.getText().toString();
+
+               WordListOpenHelper wordListOpenHelper = new WordListOpenHelper(MainActivity.this);
+               if(!TextUtils.isEmpty(date)) {
+                   wordListOpenHelper.insertData(date);
+                   Toast.makeText(getApplicationContext(), "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
+               }
+               else{
+                   Toast.makeText(getApplicationContext(),"Not Inserted, enter some data",Toast.LENGTH_LONG).show();
+               }
+
+               editText_date.setText("");
+           }
+       });
 
        Button addaData = (Button)findViewById(R.id.Add_Data);
         addaData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = editTextname.getText().toString();
+
                 WordListOpenHelper wordListOpenHelper = new WordListOpenHelper(MainActivity.this);
                 if(!TextUtils.isEmpty(name)) {
                     wordListOpenHelper.insertData(name);

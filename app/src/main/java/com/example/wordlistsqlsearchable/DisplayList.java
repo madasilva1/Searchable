@@ -2,20 +2,12 @@ package com.example.wordlistsqlsearchable;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.os.Bundle;
+
 
 
 public class DisplayList extends AppCompatActivity {
@@ -33,7 +25,7 @@ public class DisplayList extends AppCompatActivity {
         // Create recycler view.
         mRecyclerView = (RecyclerView) findViewById(R.id.recycleview);
         // Create an mAdapter and supply the data to be displayed.
-        mAdapter = new WordListAdapter(this, /*mDB.getAllEntries(),*/ mDB);
+        mAdapter = new WordListAdapter(this, mDB);
         // Connect the mAdapter with the recycler view.
         mRecyclerView.setAdapter(mAdapter);
         // Give the recycler view a default layout manager.

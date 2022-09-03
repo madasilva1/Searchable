@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 import android.util.Log;
 
 public class WordListOpenHelper extends  SQLiteOpenHelper{
@@ -18,18 +19,19 @@ public class WordListOpenHelper extends  SQLiteOpenHelper{
     private static final String DATABASE_NAME = "wordlist";
 
     // Column names...
+    public static final String KEY_DATE = "date";
     public static final String KEY_ID = "_id";
     public static final String KEY_WORD = "word";
 
     // ... and a string array of columns.
     private static final String[] COLUMNS =
-            {KEY_ID, KEY_WORD};
+            {KEY_ID, KEY_WORD,KEY_DATE};
 
     // Build the SQL query that creates the table.
     private static final String WORD_LIST_TABLE_CREATE =
             "CREATE TABLE " + WORD_LIST_TABLE + " (" +
-                    KEY_ID + " INTEGER PRIMARY KEY, " + // will auto-increment if no value passed
-                    KEY_WORD + " TEXT );";
+                    KEY_ID + " INTEGER PRIMARY KEY, " +       // will auto-increment if no value passed
+                    KEY_WORD + " TEXT ," + KEY_DATE + "INTEGER PRIMARY KEY);";
 
     private SQLiteDatabase mWritableDB;
     private SQLiteDatabase mReadableDB;
@@ -42,15 +44,15 @@ public class WordListOpenHelper extends  SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(WORD_LIST_TABLE_CREATE);
-       // fillDatabaseWithData(db);
+
     }
 
 
     public boolean insertData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-
         contentValues.put(KEY_WORD,name);
+
 
         long result = db.insert(WORD_LIST_TABLE, null, contentValues);
         if (result == -1)

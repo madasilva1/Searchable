@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Window Control</string>
     <string name="hint_word">Word...</string>
+    <string name="hint_date"> Date</string> type=""
     <string name="hint_definition">Definition...</string>
     <string name="my_string"><u>Enter Date    Room     Win      Issues </u></string>
     <string name="button_save">Save</string>
