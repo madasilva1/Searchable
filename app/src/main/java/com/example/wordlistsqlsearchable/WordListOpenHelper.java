@@ -22,8 +22,7 @@ public class WordListOpenHelper extends  SQLiteOpenHelper{
     public static final String KEY_WORD = "word";
 
     // ... and a string array of columns.
-    private static final String[] COLUMNS =
-            {KEY_ID, KEY_WORD};
+    //private static final String[] COLUMNS = {KEY_ID, KEY_WORD};
 
     // Build the SQL query that creates the table.
     private static final String WORD_LIST_TABLE_CREATE =
