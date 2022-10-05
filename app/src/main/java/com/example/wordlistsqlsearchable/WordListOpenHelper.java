@@ -1,4 +1,5 @@
 package com.example.wordlistsqlsearchable;
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -91,6 +92,7 @@ public class WordListOpenHelper extends  SQLiteOpenHelper{
      * @param position The Nth row in the table.
      * @return a WordItem with the requested database entry.
      */
+    @SuppressLint("Range")
     public WordItem query(int position) {
         String query = "SELECT  * FROM " + WORD_LIST_TABLE +
                 " ORDER BY " + KEY_WORD + " ASC " +
