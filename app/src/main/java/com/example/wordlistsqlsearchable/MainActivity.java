@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // AddData();
         editTextname = (EditText) findViewById(R.id.editText_name);
-        editText_date = (EditText)findViewById(R.id.editText_date);
+       // editText_date = (EditText)findViewById(R.id.editText_date);
 
        mDB = new WordListOpenHelper(this);
 
-       Button adddate = (Button)findViewById(R.id.Add_Date);
+      /* Button adddate = (Button)findViewById(R.id.Add_Date);
        adddate.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
                editText_date.setText("");
            }
-       });
+       });*/
 
        Button addaData = (Button)findViewById(R.id.Add_Data);
         addaData.setOnClickListener(new View.OnClickListener() {

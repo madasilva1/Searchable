@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:id="@+id/textView"
-        android:text = "Enter Issues"
+        android:text = "Enter Data. Room. #Win. Issues "
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         />
@@ -22,50 +22,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:inputType="text"
-        android:hint="Issues"
+        android:hint=""
         android:ems="10"
         android:singleLine="false" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:id="@+id/textDate"
-        android:text = "Enter Date"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        />
-
-    <EditText
-        android:id="@+id/editText_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:inputType="text"
-        android:hint="@string/hint_date"
-        android:ems="10"
-        android:singleLine="false" />
     <Button android:id="@+id/Add_Data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:text="Save Issues"
+        android:text="Save"
         android:textColor="@color/buttonLabel"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src = "@mipmap/ic_launcher"
-        android:orientation="vertical" />
-    <Button android:id="@+id/Add_Date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="Save Date"
-        android:textColor="@color/buttonLabel"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
