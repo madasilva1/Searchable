@@ -50,8 +50,10 @@ public class SearchActivity extends AppCompatActivity {
                 mTextView.append(result + "\n");
             } while (cursor.moveToNext());
             cursor.close();
+            mEditWordView.setText("");
         } else {
             mTextView.append(getString(R.string.no_result));
+
         }
     }
 }
