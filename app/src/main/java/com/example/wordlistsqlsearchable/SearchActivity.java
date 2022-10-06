@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,7 +32,7 @@ public class SearchActivity extends AppCompatActivity {
     public void showResult(View view) {
         String word = mEditWordView.getText().toString();
         mTextView.setText("Result for " + word + ":\n\n");
-
+        mTextView.setMovementMethod(new ScrollingMovementMethod());
         // Search for the word in the database.
         Cursor cursor = mDB.search(word);
         // You must move the cursor to the first item.
