@@ -1,6 +1,8 @@
 package com.example.wordlistsqlsearchable;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -22,15 +24,18 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        mDB = new WordListOpenHelper(this);
 
-        mEditWordView = ((EditText) findViewById(R.id.search_word));
-        mTextView = ((TextView) findViewById(R.id.search_result));
+        // mDB = new WordListOpenHelper(this);
+
+        //  mEditWordView = ((EditText) findViewById(R.id.search_word));
+        //  mTextView = ((TextView) findViewById(R.id.search_result));
     }
 
     // Click handler for Search button.
     public void showResult(View view) {
-        String word = mEditWordView.getText().toString();
+        Intent intent = new Intent(getBaseContext(), DisplaySearch.class);
+        startActivity(intent);
+      /*  String word = mEditWordView.getText().toString();
         mTextView.setText("Result for " + word + ":\n\n");
         mTextView.setMovementMethod(new ScrollingMovementMethod());
         // Search for the word in the database.
@@ -56,5 +61,6 @@ public class SearchActivity extends AppCompatActivity {
             mTextView.append(getString(R.string.no_result));
 
         }
+    }*/
     }
 }
