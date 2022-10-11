@@ -25,17 +25,17 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        // mDB = new WordListOpenHelper(this);
+         mDB = new WordListOpenHelper(this);
 
-        //  mEditWordView = ((EditText) findViewById(R.id.search_word));
-        //  mTextView = ((TextView) findViewById(R.id.search_result));
+         mEditWordView = ((EditText) findViewById(R.id.search_word));
+         mTextView = ((TextView) findViewById(R.id.search_result));
     }
 
     // Click handler for Search button.
     public void showResult(View view) {
-        Intent intent = new Intent(getBaseContext(), DisplaySearch.class);
-        startActivity(intent);
-      /*  String word = mEditWordView.getText().toString();
+     //   Intent intent = new Intent(getBaseContext(), DisplaySearch.class);
+       // startActivity(intent);
+      String word = mEditWordView.getText().toString();
         mTextView.setText("Result for " + word + ":\n\n");
         mTextView.setMovementMethod(new ScrollingMovementMethod());
         // Search for the word in the database.
@@ -61,6 +61,5 @@ public class SearchActivity extends AppCompatActivity {
             mTextView.append(getString(R.string.no_result));
 
         }
-    }*/
     }
-}
+    }
