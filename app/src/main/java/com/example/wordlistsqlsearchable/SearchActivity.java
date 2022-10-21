@@ -39,9 +39,6 @@ public class SearchActivity extends AppCompatActivity {
         nameadapter = new ArrayAdapter<Object>(getApplicationContext(), android.R.layout.simple_list_item_1);
         namelist.setAdapter(nameadapter);
 
-
-     //   Intent intent = new Intent(getBaseContext(), DisplaySearch.class);
-       // startActivity(intent);
       String word = mEditWordView.getText().toString();
         mTextView.setText("Result for " + word + ":\n\n");
         mTextView.setMovementMethod(new ScrollingMovementMethod());

@@ -29,17 +29,29 @@
     <TextView
         android:id="@+id/search_result"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="30dp"
         android:textStyle="bold"
         android:textColor="#00ccff"
-        android:maxLines="35"
-        android:minLines="1"
-        android:scrollbars="vertical"
         android:textSize="20sp"
         android:hint="@string/search_results"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#00ccff"
+        android:textSize="20sp"
+        android:hint="   Date     Room     #Win     Left"/>
+
     <ListView
         android:id="@+id/lv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:maxLines="35"
+        android:minLines="1"
+        android:textStyle="bold"
+        android:textColor="#00ccff"
+        android:textSize = "20sp"
+        />
 
 </LinearLayout>
