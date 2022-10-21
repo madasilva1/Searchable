@@ -37,5 +37,9 @@
         android:scrollbars="vertical"
         android:textSize="20sp"
         android:hint="@string/search_results"/>
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

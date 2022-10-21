@@ -2,13 +2,14 @@ package com.example.wordlistsqlsearchable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -33,6 +34,12 @@ public class SearchActivity extends AppCompatActivity {
 
     // Click handler for Search button.
     public void showResult(View view) {
+        ArrayAdapter<Object> nameadapter;
+        final ListView namelist = (ListView) findViewById(R.id.lv);
+        nameadapter = new ArrayAdapter<Object>(getApplicationContext(), android.R.layout.simple_list_item_1);
+        namelist.setAdapter(nameadapter);
+
+
      //   Intent intent = new Intent(getBaseContext(), DisplaySearch.class);
        // startActivity(intent);
       String word = mEditWordView.getText().toString();
@@ -53,7 +60,7 @@ public class SearchActivity extends AppCompatActivity {
                 // Get the value from the column for the current cursor.
                 result = cursor.getString(index);
                 // Add result to what's already in the text view.
-                mTextView.append(result + "\n");
+                nameadapter.add(result + "\n");
             } while (cursor.moveToNext());
             cursor.close();
             mEditWordView.setText("");
